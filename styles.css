@@ -1,0 +1,17 @@
+table {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+th {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
