@@ -18,7 +18,6 @@
 
         // Get the book_id from the form
         $book_id = $_GET['id'];
-        $book_id = $_GET['id'];
 		
 		//Set username with session variable
 		$username = $_SESSION['username'];
@@ -32,12 +31,12 @@
 			$borrower_id = $row['borrower_id'];
 			
 			// Prepare and execute the SQL query to update the hold column
-			$sql = "INSERT INTO borrower (borrower_id, book_id, username, hold) VALUES ('$borrower_id','$book_id', '$username', 1) ON DUPLICATE KEY UPDATE hold = VALUES(hold)";
+			$sql = "DELETE FROM borrower WHERE book_id = '$book_id' AND borrower_id = '$borrower_id'";
 
 			if (mysqli_query($connection, $sql)) {
-				echo "Book with ID: $book_id has been placed on hold successfully!";
+				echo "Book with ID: $book_id has been removed from your holds successfully!";
 			} else {
-				echo "Error placing the hold. Please try again later.";
+				echo "Error removing the hold. Please try again later.";
 			}
 		}
 		

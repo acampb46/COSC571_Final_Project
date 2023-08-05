@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
 
     $username = $_SESSION['username'];
 
-    // Fetch checked out books data based on the borrower_id
+    // Fetch books that are due in the next 3 days
     $query = "SELECT b.book_id, b.title,  bor.date_due, student.student_name, student.email
               FROM books AS b
               JOIN borrower AS bor ON bor.book_id = b.book_id

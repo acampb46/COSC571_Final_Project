@@ -21,7 +21,7 @@
     if (isset($_POST['search'])) {
         $search = mysqli_real_escape_string($connection, $_POST['search']);
 
-        // Query the database to search for records matching the search term (you'll need to replace 'your_table_name' with the actual name of your database table)
+        // Query the database to search for records matching the search term
         $query = "SELECT books.book_id, isbn, title, author, publisher, genre, number_copies_available, number_copies_total, shelf.shelf_number, shelf.floor_number FROM books 
 				  JOIN shelf WHERE (title LIKE '%$search%' OR author LIKE '%$search%' OR publisher LIKE '%$search%' OR genre LIKE '%$search%') AND books.book_id = shelf.book_id";
         $result = mysqli_query($connection, $query);

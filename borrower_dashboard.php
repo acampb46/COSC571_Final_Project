@@ -97,7 +97,7 @@ if (!isset($_SESSION['username'])) {
 
     $username = $_SESSION['username'];
 
-    // Fetch checked out books data based on the borrower_id
+    // Fetch books on hold based on the borrower_id
     $query = "SELECT b.book_id, b.isbn, b.title, b.author, b.publisher, b.genre
               FROM books AS b
               JOIN borrower AS bor ON bor.book_id = b.book_id
@@ -115,6 +115,7 @@ if (!isset($_SESSION['username'])) {
                     <th>Author</th>
                     <th>Publisher</th>
                     <th>Genre</th>
+					<th>Edit Hold</th>
                 </tr>";
 
         // Display each row of data in the table
@@ -126,6 +127,7 @@ if (!isset($_SESSION['username'])) {
             echo "<td>" . $row['author'] . "</td>";
             echo "<td>" . $row['publisher'] . "</td>";
             echo "<td>" . $row['genre'] . "</td>";
+			echo "<td> <a href='remove_hold.php?id=" . $row['book_id'] . "'>Remove Hold</a></td>";
             echo "</tr>";
         }
 
